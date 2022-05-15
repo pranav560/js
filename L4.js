@@ -159,7 +159,7 @@ console.log(p1JSON);
 var p1Copy = JSON.parse(p1JSON);
 console.log(p1Copy);
 
-// A lot of things get lost when you serialize an object
+// A lot of things get lost when you serialize an custom object
 
 // You can also use these function on arrays
 
