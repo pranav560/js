@@ -57,7 +57,7 @@ var filteredData2 = data.filter(
     }
 ).map(
     function (item, index) {
-        return new Product(item.name, item.price); //deep copy , in this all additional attributes will be there ,  moreover there also be product.prototype  info preserved 
+        return new Product(item.name, item.price); //deep copy , in this all additional attributes(nested also) will be there ,  moreover there also be product.prototype  info preserved 
         // return { // this will form new object of type object 
         //     name: item.name,
         //     price: item.price
@@ -108,12 +108,17 @@ console.log(splittedData);
 console.log(data);
 // the difference between splice and slice is that splice will remove the items from the array
 
+//-------------------this portioned skipped-------------------//time around 1 hr in video
+
 // var newData = [data.splice(0, 2), data.splice(0, 2)]; // this will create a new array with 2 arrays
 // console.log(newData);
 
 var newData = data.splice(1, 2).concat(data.splice(0, 2)); // this will create a new array with 2 arrays
 console.log(newData);
 
+//--------------------
+
+// above mentioned func are present in array.prototype , if we want we can add function of our choice we can add in  array.prototype
 
 // Serialization and Deserialization
 
@@ -146,7 +151,7 @@ try {
 catch (error) {
     console.log(error);
 }
-
+// case of custom objects
 function Product(name, price) {
     this.name = name;
     this.price = price;
@@ -157,12 +162,14 @@ var p1 = new Product("Coffee", 2.5);
 var p1JSON = JSON.stringify(p1);
 console.log(p1JSON);
 var p1Copy = JSON.parse(p1JSON);
-console.log(p1Copy);
+console.log(p1Copy); // this p1 copy will be normal object not product object  , all the hierarchy of parent prototype will also be lost
 
-// A lot of things get lost when you serialize an custom object
+// A lot of things get lost when you serialize an custom object  
 
 // You can also use these function on arrays
-
+// in js function in synchronous way
+// browser api run in asynchronous way
+//stringify and parse both are done  by js engine
 
 
 // ECMAScript
