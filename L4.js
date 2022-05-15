@@ -23,7 +23,7 @@ data.forEach(
         console.log(item.name + " " + item.price);
     }
 );
-// Dont use forEach if you will be manupulating the array
+// Dont use forEach if you will be deleting the elements from  the array
 
 var changedData = data.map(
     function (item, index) {
@@ -32,7 +32,7 @@ var changedData = data.map(
     }
 );
 console.log(changedData);
-// Map apply the function to each item in the array and return the new array
+// will apply the function to each item in the array and return the new array( the new array is of pointers  refering to the same objects)
 
 var productNames = data.map(
     function (item, index) {
@@ -40,6 +40,7 @@ var productNames = data.map(
     }   
 );
 console.log(productNames);
+// will apply the function to each item in the array and return the new array( the new array is of string type )
 console.log(productNames.join(", ")); // Join the array to a string
 
 
@@ -47,7 +48,7 @@ var filteredData = data.filter(
     function (item, index) {
         return item.price > 3; //return a boolean value
     }
-);
+); // new array formed same as above cases
 console.log(filteredData);
 
 var filteredData2 = data.filter(
@@ -56,8 +57,8 @@ var filteredData2 = data.filter(
     }
 ).map(
     function (item, index) {
-        return new Product(item.name, item.price);
-        // return { //both are same thing execpt if product constructer have other properties/methods then it will not be there
+        return new Product(item.name, item.price); //deep copy , in this all additional attributes will be there ,  moreover there also be product.prototype  info preserved 
+        // return { // this will form new object of type object 
         //     name: item.name,
         //     price: item.price
         // }
