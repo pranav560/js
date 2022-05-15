@@ -63,7 +63,7 @@ var filteredData2 = data.filter(
         //     price: item.price
         // }
     }
-);
+); // in this case new array of pointers will form  but the product object will be different from data
 filteredData2[0].name = "Coffee3";
 console.log(filteredData2);
 console.log(data);
@@ -75,6 +75,7 @@ var findedData = data.find(
 );
 console.log(findedData);
 // Find the first item that matches the condition
+// If not found, it will return undefined
 
 
 var findedIndex = data.findIndex(
@@ -95,11 +96,10 @@ var sortedData = data.sort(
     }
 );
 console.log(sortedData);
-// Swap the item if the return value is negative
-// If the return value is positive, it will keep the original order
+// Swap the item if the return value is positive
 
 
-var slicedData = data.slice(0, 2); // return the first 2 items
+var slicedData = data.slice(2); // return the  items from index 2 inclusively
 console.log(slicedData);
 // Slice the array starting from first argument and ending at second argument - 1
 
